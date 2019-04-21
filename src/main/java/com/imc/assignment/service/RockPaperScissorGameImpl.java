@@ -37,7 +37,7 @@ public class RockPaperScissorGameImpl implements Game {
         this.turns = sc.nextInt();
         player1.init();
         player2.init();
-        this.score.initScore(player1,player2);
+        this.score.init(player1,player2);
     }
 
     @Override
@@ -47,9 +47,9 @@ public class RockPaperScissorGameImpl implements Game {
 
             PlayerMove player1Move = player1.getNextMove();
             PlayerMove player2Move = player2.getNextMove();
-            log.info("Player 1 move: {}", player1Move);
-            log.info("Player 2 move: {}", player2Move);
-            if (player2Move == player1Move) {
+            log.info("{}'s move: {}", player1.getPlayerName(), player1Move);
+            log.info("{}'s move: {}", player2.getPlayerName(), player2Move);
+            if (player1Move == player2Move) {
                 log.info("It's a tie!");
             } else {
                 Player winner = player1Move.beats(player2Move) ? player1 : player2;

@@ -23,4 +23,14 @@ public class CpuPlayerImpl implements Player {
     public void init() {
         //Not action required
     }
+
+    @Override
+    public boolean equals(Object o) {
+        return equalsDefault(o);
+    }
+
+    @Override
+    public int hashCode() {
+        return hashCodeDefault();
+    }
 }

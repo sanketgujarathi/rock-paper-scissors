@@ -5,17 +5,17 @@ public enum PlayerMove {
     ROCK {
         @Override
         public boolean beats(PlayerMove move) {
-            return this == SCISSORS;
+            return move == SCISSORS;
         }
     }, PAPER {
         @Override
         public boolean beats(PlayerMove move) {
-            return this == ROCK;
+            return move == ROCK;
         }
     }, SCISSORS {
         @Override
         public boolean beats(PlayerMove move) {
-            return this == PAPER;
+            return move == PAPER;
         }
     };
 

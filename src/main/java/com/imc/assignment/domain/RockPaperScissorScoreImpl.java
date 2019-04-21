@@ -15,12 +15,8 @@ public class RockPaperScissorScoreImpl implements Score {
 
     private Map<Player, Integer> scoreMap;
 
-    public RockPaperScissorScoreImpl(Map<Player, Integer> scoreMap) {
-        this.scoreMap = scoreMap;
-    }
-
     @Override
-    public void initScore(Player... players) {
+    public void init(Player... players) {
         scoreMap = stream(players).collect(Collectors.toMap(identity(), v -> valueOf(0)));
     }
 

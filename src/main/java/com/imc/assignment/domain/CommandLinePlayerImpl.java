@@ -7,6 +7,8 @@ import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
 
+import static com.imc.assignment.domain.PlayerMove.valueOf;
+
 @Component
 @Qualifier("user")
 public class CommandLinePlayerImpl implements Player {
@@ -23,10 +25,9 @@ public class CommandLinePlayerImpl implements Player {
             Scanner scanner = new Scanner(System.in);
             String input = scanner.nextLine();
             try {
-                return PlayerMove.valueOf(input.toUpperCase());
+                return valueOf(input.toUpperCase());
             } catch (IllegalArgumentException e) {
                 log.info("Invalid move! Try again.");
-                continue;
             }
         }
     }
@@ -42,5 +43,15 @@ public class CommandLinePlayerImpl implements Player {
         Scanner scanner = new Scanner(System.in);
         String name = scanner.nextLine();
         this.playerName = name.toUpperCase();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        return equalsDefault(o);
+    }
+
+    @Override
+    public int hashCode() {
+        return hashCodeDefault();
     }
 }

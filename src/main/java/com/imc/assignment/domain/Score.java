@@ -4,7 +4,7 @@ import java.util.Map;
 
 public interface Score {
 
-    void initScore(Player... players);
+    void init(Player... players);
 
     void increaseScore(Player player);
 
