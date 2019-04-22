@@ -44,7 +44,7 @@ public class RockPaperScissorGameImpl implements Game {
     public void play() {
 
         for (int i = 0; i < turns; i++) {
-
+            log.info("Round {}/{}", i+1, turns);
             PlayerMove player1Move = player1.getNextMove();
             PlayerMove player2Move = player2.getNextMove();
             log.info("{}'s move: {}", player1.getPlayerName(), player1Move);
