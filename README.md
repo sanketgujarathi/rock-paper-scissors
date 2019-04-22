@@ -31,7 +31,7 @@ Follow the instructions displayed on the console to play the game.
 ```
 Welcome to the game of Rock-Paper-Scissors!
 Enter number of turns you wish to play:
-
+2
 Enter your name:
 john
 Round 1/2
@@ -54,7 +54,7 @@ JOHN:1
 
 ## Running the tests
 
-Run the following command to run the automated tests.
+Run the following command to run the automated unit tests.
 
 ```
 maven clean test
