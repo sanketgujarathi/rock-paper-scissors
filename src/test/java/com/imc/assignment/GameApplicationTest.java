@@ -1,9 +1,7 @@
 package com.imc.assignment;
 
 
-import com.imc.assignment.domain.CpuPlayerImpl;
-import com.imc.assignment.domain.RockPaperScissorScoreImpl;
-import com.imc.assignment.domain.Score;
+import com.imc.assignment.domain.*;
 import com.imc.assignment.service.Game;
 import org.junit.Before;
 import org.junit.Test;
@@ -29,12 +27,12 @@ public class GameApplicationTest {
     @Test
     public void testRunMethod() {
         Score score = new RockPaperScissorScoreImpl();
-        score.init(new CpuPlayerImpl());
+        score.init( new CpuPlayerImpl());
         when(game.getScore()).thenReturn(score);
 
         gameApplication.run("args");
 
-        verify(game, times(1)).init();
+        verify(game, times(1)).init(any(Player.class));
         verify(game, times(1)).play();
         verify(game, times(1)).getScore();
     }

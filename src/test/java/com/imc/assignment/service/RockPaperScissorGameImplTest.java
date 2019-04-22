@@ -28,7 +28,7 @@ public class RockPaperScissorGameImplTest {
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        game = new RockPaperScissorGameImpl(player1,player2, score);
+        game = new RockPaperScissorGameImpl(score);
 
     }
 
@@ -36,10 +36,11 @@ public class RockPaperScissorGameImplTest {
     public void testInit() {
         ByteArrayInputStream in = new ByteArrayInputStream("3".getBytes());
         System.setIn(in);
-        game.init();
+        game.init(player1, player2);
         verify(player1, times(1)).init();
         verify(player2, times(1)).init();
-        verify(score, times(1)).init(player1, player2);
+        verify(score, times(1)).init(player1);
+        verify(score, times(1)).init(player2);
 
     }
 
@@ -47,7 +48,7 @@ public class RockPaperScissorGameImplTest {
     public void testPlayWhenPlayer1Wins() {
         ByteArrayInputStream in = new ByteArrayInputStream("1".getBytes());
         System.setIn(in);
-        game.init();
+        game.init(player1, player2);
         when(player1.getNextMove()).thenReturn(ROCK);
         when(player2.getNextMove()).thenReturn(SCISSORS);
         game.play();
@@ -61,7 +62,7 @@ public class RockPaperScissorGameImplTest {
     public void testPlayWhenPlayer2Wins() {
         ByteArrayInputStream in = new ByteArrayInputStream("1".getBytes());
         System.setIn(in);
-        game.init();
+        game.init(player1, player2);
         when(player1.getNextMove()).thenReturn(PAPER);
         when(player2.getNextMove()).thenReturn(SCISSORS);
         game.play();
@@ -75,7 +76,7 @@ public class RockPaperScissorGameImplTest {
     public void testPlayWhenThereIsATie() {
         ByteArrayInputStream in = new ByteArrayInputStream("1".getBytes());
         System.setIn(in);
-        game.init();
+        game.init(player1, player2);
         when(player1.getNextMove()).thenReturn(PAPER);
         when(player2.getNextMove()).thenReturn(PAPER);
         game.play();
@@ -89,7 +90,7 @@ public class RockPaperScissorGameImplTest {
     public void testPlayForMultipleRounds() {
         ByteArrayInputStream in = new ByteArrayInputStream("3".getBytes());
         System.setIn(in);
-        game.init();
+        game.init(player1, player2);
         game.play();
         verify(player1, times(3)).getNextMove();
         verify(player2, times(3)).getNextMove();

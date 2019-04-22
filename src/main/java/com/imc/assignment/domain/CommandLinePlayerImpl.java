@@ -2,15 +2,11 @@ package com.imc.assignment.domain;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
 
 import static com.imc.assignment.domain.PlayerMove.valueOf;
 
-@Component
-@Qualifier("user")
 public class CommandLinePlayerImpl implements Player {
 
     private String playerName;
@@ -20,7 +16,7 @@ public class CommandLinePlayerImpl implements Player {
     @Override
     public PlayerMove getNextMove() {
 
-        while(true) {
+        while (true) {
             log.info("Player {} enter your move(ROCK | PAPER | SCISSORS):", playerName);
             Scanner scanner = new Scanner(System.in);
             String input = scanner.nextLine();

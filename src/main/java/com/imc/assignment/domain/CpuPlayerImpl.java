@@ -1,12 +1,7 @@
 package com.imc.assignment.domain;
 
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
-
 import java.util.Random;
 
-@Component
-@Qualifier("cpu")
 public class CpuPlayerImpl implements Player {
 
     @Override

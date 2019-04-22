@@ -2,27 +2,23 @@ package com.imc.assignment.domain;
 
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Collectors;
-
-import static java.lang.Integer.valueOf;
-import static java.util.Arrays.stream;
-import static java.util.function.Function.identity;
 
 @Repository
 public class RockPaperScissorScoreImpl implements Score<Integer> {
 
 
-    private Map<Player, Integer> scoreMap;
+    private Map<Player, Integer> scoreMap = new HashMap<>();
 
     @Override
-    public void init(Player... players) {
-        scoreMap = stream(players).collect(Collectors.toMap(identity(), v -> valueOf(0)));
+    public void init(Player player) {
+        scoreMap.put(player, 0);
     }
 
     @Override
     public void increaseScore(Player player) {
-        scoreMap.computeIfPresent(player, (k,v) -> v+1);
+        scoreMap.computeIfPresent(player, (k, v) -> v + 1);
     }
 
     @Override
