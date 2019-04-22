@@ -15,14 +15,18 @@ public class PlayerMoveTest {
         assertTrue("Rock should beat scissors", ROCK.beats(SCISSORS));
         assertTrue("Paper should beat rock", PAPER.beats(ROCK));
         assertTrue("Scissors should beat paper", SCISSORS.beats(PAPER));
+
+        assertFalse("Rock does not beat paper", ROCK.beats(PAPER));
+        assertFalse("Paper does not beat scissors", PAPER.beats(SCISSORS));
+        assertFalse("Scissors does not beat rock", SCISSORS.beats(ROCK));
     }
 
     @Test
-    public void testBeathsWhenTie() {
+    public void testBeatsWhenTie() {
 
-        assertFalse("Rock should beat scissors", ROCK.beats(ROCK));
-        assertFalse("Paper should beat rock", PAPER.beats(PAPER));
-        assertFalse("Scissors should beat paper", SCISSORS.beats(SCISSORS));
+        assertFalse(ROCK.beats(ROCK));
+        assertFalse(PAPER.beats(PAPER));
+        assertFalse(SCISSORS.beats(SCISSORS));
     }
 
 
