@@ -1,5 +1,6 @@
 package com.imc.assignment;
 
+import com.imc.assignment.domain.Player;
 import com.imc.assignment.domain.Score;
 import com.imc.assignment.service.Game;
 import org.slf4j.Logger;
@@ -32,7 +33,7 @@ public class GameApplication implements CommandLineRunner {
 
     private void displayScore(Score score){
         log.info("Final Score is:");
-        score.getScore().forEach((k,v) -> log.info("{}:{}", k.getPlayerName(), v));
+        score.getScore().forEach((k,v) -> log.info("{}:{}", ((Player) k).getPlayerName(), v));
 
     }
 }

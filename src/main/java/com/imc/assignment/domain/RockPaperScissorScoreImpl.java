@@ -10,7 +10,7 @@ import static java.util.Arrays.stream;
 import static java.util.function.Function.identity;
 
 @Repository
-public class RockPaperScissorScoreImpl implements Score {
+public class RockPaperScissorScoreImpl implements Score<Integer> {
 
 
     private Map<Player, Integer> scoreMap;

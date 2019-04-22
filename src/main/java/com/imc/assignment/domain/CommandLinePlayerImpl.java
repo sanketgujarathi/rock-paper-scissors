@@ -21,7 +21,7 @@ public class CommandLinePlayerImpl implements Player {
     public PlayerMove getNextMove() {
 
         while(true) {
-            log.info("Player {} enter your move:", playerName);
+            log.info("Player {} enter your move(ROCK | PAPER | SCISSORS):", playerName);
             Scanner scanner = new Scanner(System.in);
             String input = scanner.nextLine();
             try {

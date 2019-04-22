@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.Scanner;
+import java.util.stream.IntStream;
 
 @Service
 public class RockPaperScissorGameImpl implements Game {
@@ -43,10 +44,11 @@ public class RockPaperScissorGameImpl implements Game {
     @Override
     public void play() {
 
+        PlayerMove player1Move, player2Move;
         for (int i = 0; i < turns; i++) {
             log.info("Round {}/{}", i+1, turns);
-            PlayerMove player1Move = player1.getNextMove();
-            PlayerMove player2Move = player2.getNextMove();
+            player1Move = player1.getNextMove();
+            player2Move = player2.getNextMove();
             log.info("{}'s move: {}", player1.getPlayerName(), player1Move);
             log.info("{}'s move: {}", player2.getPlayerName(), player2Move);
             if (player1Move == player2Move) {
