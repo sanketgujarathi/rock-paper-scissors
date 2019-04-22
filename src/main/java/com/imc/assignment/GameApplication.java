@@ -11,9 +11,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class GameApplication implements CommandLineRunner {
 
-    private static Game game;
+    private Game game;
 
-    private static Logger log = LoggerFactory.getLogger(GameApplication.class);
+    private Logger log = LoggerFactory.getLogger(GameApplication.class);
 
     public GameApplication(Game game) {
         this.game = game;
